@@ -24,7 +24,29 @@
       	  	  </tr>
       	  	</tbody>
       	  </table>
+          <%= link_to "Write a Review", new_movie_review_path(@movie) %>
       	</div>
+      </div>
+      <div class="col-md-7 col-md-offset-1">
+        <h1 class="review_title"><%= @movie.title %></h1>
+        <% if @reviews.present? %>
+          <div class="star-rating" data-score=<%= @avg_rating %>></div>
+          <div id="average-rating"><%= "#{@avg_rating}/#{MAX_RATING}" %></div>
+          <em><%= "Total #{@reviews.length} reviews" %></em>
+          <br><br> 
+        <% end %>
+        <p><%= @movie.description %></p>
+        <% if @reviews.blank? %>
+           <h3>No reviews for this movie. Be the first to review it!</h3>
+           <%= link_to "Write the first review", new_movie_review_path(@movie), class: "btn btn-danger" %>
+        <% else %>
+           <% @reviews.each do |review| %>
+             <div class="reviews">
+               <div class="star-rating" data-score=<%= review.rating %>></div>
+               <p><%= review.comment %></p>
+             </div>
+           <% end %>
+        <% end %>
       </div>	
     </div>		
   </div>
@@ -32,3 +54,15 @@
 
 <%= link_to 'Edit', edit_movie_path(@movie) %> |
 <%= link_to 'Back', movies_path %>
+
+<script>
+  var max_rating = <%= MAX_RATING %>
+  $('.star-rating').raty({
+    path: '/assets/',
+    readOnly: true,
+    number: max_rating,
+    score: function() {
+      return $(this).attr('data-score');
+    }
+  });
+</script>

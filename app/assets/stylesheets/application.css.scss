@@ -17,6 +17,10 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+body {
+	background-color: brown;
+}
+
 .review_title {
 	margin: 0 0 20px 0;
 }
