@@ -1,0 +1,1 @@
+MAX_RATING = 10
