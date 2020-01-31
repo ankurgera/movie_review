@@ -5,7 +5,11 @@ class MoviesController < ApplicationController
   # GET /movies
   # GET /movies.json
   def index
-    @pagy, @movies = pagy(Movie.all)
+    if params[:movie]
+      @pagy, @movies = pagy(Movie.filter(params[:movie][:category]))
+    else
+      @pagy, @movies = pagy(Movie.all)
+    end
   end
 
   # GET /movies/1

@@ -5,6 +5,11 @@
   </div>
 <% end %>
 
+<%= form_tag movies_path, method: "get", id: "filter", class: "filter" do %>
+  <%= label_tag "Category" %>
+  <%= select("movie", "category", categories, {selected: selected_category(params[:movie])}, onchange: "$('#filter').submit();") %>
+<% end %>
+
 <div class="row">
   <% @movies.each do |movie| %>
     <div class="col-sm-6 col-md-3">
