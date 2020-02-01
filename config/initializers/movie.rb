@@ -1,1 +1,2 @@
 MAX_RATING = 10
+ALL = 'All'

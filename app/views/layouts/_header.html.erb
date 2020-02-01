@@ -24,4 +24,11 @@
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
+
+  <div id="movie-categories">
+    <%= form_tag movies_path, method: "get", id: "filter", class: "filter" do %>
+      <%= label_tag "Categories" %>
+      <%= select("movie", "category", categories, {selected: selected_category(params[:movie])}, onchange: "$('#filter').submit();") %>
+    <% end %>
+  </div>
 </nav>
