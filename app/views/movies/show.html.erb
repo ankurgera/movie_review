@@ -30,6 +30,7 @@
       <div class="col-md-7 col-md-offset-1">
         <h1 class="review_title"><%= @movie.title %></h1>
         <% if @reviews.present? %>
+          <strong>Average Rating:</strong>
           <div class="star-rating" data-score=<%= @avg_rating %>></div>
           <div id="average-rating"><%= "#{@avg_rating}/#{MAX_RATING}" %></div>
           <em><%= "Total #{@reviews.length} reviews" %></em>
