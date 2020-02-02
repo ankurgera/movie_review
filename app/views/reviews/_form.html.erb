@@ -26,8 +26,10 @@
 <% end %>
 
 <script>
+  var max_rating = <%= MAX_RATING %>
   $("#star-rating").raty({
     path: '/assets/',
+    number: max_rating,
     scoreName: 'review[rating]'
   });
 </script>
