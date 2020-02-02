@@ -43,6 +43,7 @@
         <% else %>
            <% @reviews.each do |review| %>
              <div class="reviews">
+               <div><%= current_user.email %></div>
                <div class="star-rating" data-score=<%= review.rating %>></div>
                <p><%= review.comment %></p>
              </div>

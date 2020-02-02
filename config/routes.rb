@@ -7,5 +7,7 @@ Rails.application.routes.draw do
   	resources :reviews, except: [:show, :index]
   end
 
+  post '/movies/:movie_id/quick_rating', to: 'reviews#quick_rating'
+
   root 'movies#index'
 end

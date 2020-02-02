@@ -26,6 +26,19 @@ class ReviewsController < ApplicationController
     end
   end
 
+  # Quick star rating from the Movies home page.
+  def quick_rating
+    @review = Review.new({rating: params[:rating].try(:last)})
+    @review.user_id = current_user.id
+    @review.movie_id = @movie.id
+
+    if @review.save
+      render json: @review, notice: 'Review was successfully created.'
+    else
+      render json: @review.errors, status: :unprocessable_entity
+    end
+  end
+
   # PATCH/PUT /reviews/1
   # PATCH/PUT /reviews/1.json
   def update
