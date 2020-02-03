@@ -28,7 +28,7 @@ class ReviewsController < ApplicationController
 
   # Quick star rating from the Movies home page.
   def quick_rating
-    @review = Review.new({rating: params[:rating].try(:last)})
+    @review = Review.new({rating: params[:rating]})
     @review.user_id = current_user.id
     @review.movie_id = @movie.id
 

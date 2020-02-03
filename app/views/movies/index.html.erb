@@ -32,7 +32,7 @@
 
   $(".star-rating").on('click', function(){
     var movie_id = $(this).attr("movie-id");
-    var movie_rating = $('.star-rating').raty('score');
+    var movie_rating = $(this).raty('score');
     $.ajax({
       url:'/movies/'+ movie_id +'/quick_rating',
       type:"post",
