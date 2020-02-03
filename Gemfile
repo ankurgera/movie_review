@@ -18,7 +18,6 @@ gem 'bootstrap-sass'
 gem 'jquery-rails'
 gem 'pagy'
 gem 'rails_12factor', group: :production
-gem 'aws-sdk'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
