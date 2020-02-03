@@ -17,7 +17,6 @@ gem 'paperclip'
 gem 'bootstrap-sass'
 gem 'jquery-rails'
 gem 'pagy'
-gem 'rails_12factor', group: :production
 gem "aws-sdk-s3", require: false
 
 group :development, :test do
